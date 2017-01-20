@@ -35,7 +35,7 @@ plotting_periodic_curves <- function(number_of_curves = 10, max_x = 10){
                 }
         }
         
-        pal <- "black"
+        m <- list(l = 50, r = 50, b = 100, t = 100, pad = 4)
         
         form <- paste('plot_ly(dat, x = ~x, y = ~y1, type = "scatter", mode = ',
                       '"lines", color = I("black"), name = "n = 1")', sep = '')
@@ -50,7 +50,8 @@ plotting_periodic_curves <- function(number_of_curves = 10, max_x = 10){
         
         form <- paste(form, ' %>% layout(title = "Prime Number Patterns", yaxi',
                       's = list(title = "", range = c(-', max_x, ', ', max_x, 
-                      ')), xaxis = list(title = ""), showlegend = FALSE)', 
+                      ')), xaxis = list(title = ""), showlegend = FALSE, autos',
+                      'ize = F, width = 500, height = 500, margin = m)', 
                       sep = "")
         
         p <- parse(text = form)
